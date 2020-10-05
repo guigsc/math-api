@@ -10,6 +10,9 @@ This visual studio solution contains a Test project (xUnit).
 
 The request content is validated using [Fluent Validation](https://fluentvalidation.net). If the request is valid, then the class method to validate if the given numbers are multiple of eleven is called (using dependency injection).
 
+The input should be an array of numbers. If empty it will return an empty result.
+Each number on the input array should in a string format, and not contain special characters other than - (minus) character on the first position of the string. 
+
 ## How to use this API
 
 To use this WebAPI, make a Http POST request to the route /multipleofeleven with a JSON content.

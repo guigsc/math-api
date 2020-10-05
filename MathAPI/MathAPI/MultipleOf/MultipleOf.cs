@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using MathAPI.MultipleOf.Interfaces;
 using MathAPI.MultipleOf.Result;
 
 namespace MathAPI.MultipleOf
 {
-    public abstract class MultipleOf
+    public abstract class MultipleOf : IMultipleOf
     {
         public abstract bool IsMultiple(string number);
         public virtual IEnumerable<IsMultipleResult> IsMultiple(IEnumerable<string> numbers)

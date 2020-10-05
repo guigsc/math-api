@@ -3,9 +3,8 @@ using MathAPI.MultipleOf.Result;
 
 namespace MathAPI.MultipleOf.Interfaces
 {
-    public interface IMultipleOfEleven  
+    public interface IMultipleOfEleven : IMultipleOf
     {
-        bool IsMultiple(string number);
-        IEnumerable<IsMultipleResult> IsMultiple(IEnumerable<string> numbers);
+        
     }
 }

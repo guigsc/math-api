@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using MathAPI.Extensions;
 using MathAPI.MultipleOf.Interfaces;
 
 namespace MathAPI.MultipleOf
@@ -7,12 +8,10 @@ namespace MathAPI.MultipleOf
     {
         public override bool IsMultiple(string number)
         {
-            if (!IsValidNumber(number))
-                return false;
-            
-            if (number[0].Equals('-'))
-                number = number.Remove(0, 1);
-            
+            if (!number.IsNumber()) return false;
+
+            number = number.RemoveNegativeSign();
+
             int sumOddDigits = 0, sumEvenDigits = 0;
 
             for (int digitIndex = 0; digitIndex < number.Length; digitIndex++)
@@ -26,16 +25,6 @@ namespace MathAPI.MultipleOf
             bool isMultiple = (sumOddDigits - sumEvenDigits) % 11 == 0;
 
             return isMultiple;
-        }
-
-        private bool IsValidNumber(string number)
-        {
-            if (string.IsNullOrEmpty(number)) return false;
-
-            Regex regex = new Regex("^-?[0-9]*$");
-            if (!regex.IsMatch(number)) return false;
-
-            return true;
         }
     }
 }
